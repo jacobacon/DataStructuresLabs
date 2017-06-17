@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jacobbeneski/CLionProjects/labs/lab2/LinkedChar.cpp
+iostream
+-
+LinkedChar.h
+/Users/jacobbeneski/CLionProjects/labs/lab2/LinkedChar.h
+
+/Users/jacobbeneski/CLionProjects/labs/lab2/LinkedChar.h
+Node.h
+/Users/jacobbeneski/CLionProjects/labs/lab2/Node.h
+string
+-
+
+/Users/jacobbeneski/CLionProjects/labs/lab2/Node.cpp
+Node.h
+/Users/jacobbeneski/CLionProjects/labs/lab2/Node.h
+
+/Users/jacobbeneski/CLionProjects/labs/lab2/Node.h
+
+/Users/jacobbeneski/CLionProjects/labs/lab2/charchain.cpp
+iostream
+-
+LinkedChar.h
+/Users/jacobbeneski/CLionProjects/labs/lab2/LinkedChar.h
+
