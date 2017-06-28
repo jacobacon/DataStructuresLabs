@@ -14,55 +14,52 @@ bool isOperator(char c);
 double eval(int v1, int v2, char op);
 
 
-double postfix() {
+void postfix() {
 
+    //Capture the input string
     string parseString;
 
     cout << "Enter postfix to calculate: ";
 
     cin >> parseString;
 
+    cout << parseString << "evaluates as: ";
+
 
     LinkedStack<int> numeralStack;
-    LinkedStack<char> operatorStack;
 
 
+    //Scan through the input string for each char.
     for (int i = 0; i < parseString.length(); i++) {
-        if (isOperator(parseString[i])) {
-            //operatorStack.push(parseString[i]);
 
-            int numeralOne = numeralStack.peek();
-            numeralStack.pop();
+        //If char is an operator, perform the action on the top two items in stack.
+        if (isOperator(parseString[i])) {
+
             int numeralTwo = numeralStack.peek();
+            numeralStack.pop();
+            int numeralOne = numeralStack.peek();
             numeralStack.pop();
 
             numeralStack.push(eval(numeralOne, numeralTwo, parseString[i]));
 
             cout << "Value is: " << numeralStack.peek();
 
-        //cout << "Value is: " << eval(numeralOne, numeralTwo, parseString[i]);
-
-
-
-
-        } else {
+            //If char is not an operator add it to the stack.
+        } else if(isdigit(parseString[i])){
             numeralStack.push(parseString[i] - '0');
-            cout << numeralStack.peek() << endl;
         }
 
 
     }
 
 
-    //return numeralStack.peek();
+}
 
+bool isNumeral(){
 
 }
 
-bool isNumeral(char c) {
-
-}
-
+//Check if char is an operator
 bool isOperator(char c) {
     if ((c == '+') || (c == '-') || (c == '*') || (c == '/')) {
         return true;
@@ -71,6 +68,7 @@ bool isOperator(char c) {
     }
 }
 
+//Perform math on values
 double eval(int v1, int v2, char op){
 
     double returnVal;
@@ -82,16 +80,16 @@ double eval(int v1, int v2, char op){
             break;
         }
         case '-':{
-            returnVal = v2 - v1;
-            cout << returnVal;
+            returnVal = v1 - v2;
             break;
         }
         case '*': {
-            returnVal = v2 * v2;
+            returnVal = v1 * v2;
+            cout << returnVal;
             break;
         }
         case '/': {
-            returnVal = v2 / v1;
+            returnVal = v1 / v2;
             break;
         }
     }
@@ -101,9 +99,9 @@ double eval(int v1, int v2, char op){
 }
 
 
+
+//Start the main.
 int main() {
-
-
     postfix();
     return 0;
 }
