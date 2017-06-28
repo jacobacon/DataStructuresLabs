@@ -31,11 +31,15 @@ public:
 
     void clear();
 
-    bool contains();
+    bool contains(LinkedChar linkedChar);
 
-    int find();
+    int find(char c);
 
     std::string toString();
+
+    void append(LinkedChar &linkedChar);
+
+    Node *getHeadPtr();
 
 };
 
