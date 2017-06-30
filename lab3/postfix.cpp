@@ -14,16 +14,16 @@ bool isOperator(char c);
 double eval(int v1, int v2, char op);
 
 
-void postfix() {
+double postfix() {
 
     //Capture the input string
     string parseString;
 
-    cout << "Enter postfix to calculate: ";
+    cout << "Enter postfix to calculate (no spaces): ";
 
     cin >> parseString;
 
-    cout << parseString << "evaluates as: ";
+    cout << parseString << " evaluates as: ";
 
 
     LinkedStack<int> numeralStack;
@@ -42,7 +42,6 @@ void postfix() {
 
             numeralStack.push(eval(numeralOne, numeralTwo, parseString[i]));
 
-            cout << "Value is: " << numeralStack.peek();
 
             //If char is not an operator add it to the stack.
         } else if(isdigit(parseString[i])){
@@ -52,10 +51,7 @@ void postfix() {
 
     }
 
-
-}
-
-bool isNumeral(){
+    cout << numeralStack.peek();
 
 }
 
@@ -85,7 +81,6 @@ double eval(int v1, int v2, char op){
         }
         case '*': {
             returnVal = v1 * v2;
-            cout << returnVal;
             break;
         }
         case '/': {
