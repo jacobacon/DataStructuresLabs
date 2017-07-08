@@ -5,7 +5,7 @@
 #ifndef LAB4_NICELIST_H
 #define LAB4_NICELIST_H
 
-#include "gift.h"
+#include "niceKid.h"
 
 
 class niceList {
@@ -13,7 +13,8 @@ private:
 public:
     niceList();
     LinkedList<std::string> list;
-    void addGift();
+    void createGiftObject(std::string name);
+    void addGiftItem();
 
 
 };
