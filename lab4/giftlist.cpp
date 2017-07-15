@@ -1,11 +1,11 @@
 #include <iostream>
 #include "niceKid.h"
+
 using namespace std;
 
 LinkedList<niceKid> niceList;
 
-void createList(){
-
+void createList() {
 
 
     cout << "Enter the Name of Nice Kid: ";
@@ -13,33 +13,31 @@ void createList(){
 
     int nameCounter = 1;
 
-    while (getline(std::cin, name))
-    {
-        cout << "Length of nameList: " << nameCounter << endl;
+    while (getline(std::cin, name)) {
         if (name.empty())
             break;
         niceKid nice(name);
-        niceList.insert(nameCounter, nice);
+
 
         string gift;
 
         int giftCounter = 1;
         cout << "Enter a gift for " << name << ": ";
-        while(getline(std::cin, gift)){
-            if(gift.empty())
+        while (getline(std::cin, gift)) {
+            if (gift.empty())
                 break;
 
             cout << "Enter a gift for " << name << ": ";
-            
 
-            //niceList.getEntry(nameCounter).getGifts().insert(giftCounter,gift);
+
+            nice.getGiftsPtr()->insert(giftCounter, gift);
+
             giftCounter++;
 
-            cout << "Length of gifts: " << niceList.getEntry(nameCounter).getGifts().getLength() << endl;
-            cout << "Gift counter: " << giftCounter << endl;
 
-          //  niceList.getEntry(nameCounter).getGif
         }
+
+        niceList.insert(nameCounter, nice);
 
         nameCounter++;
         std::cout << std::endl << "Enter the Name of Nice Kid: ";
@@ -47,36 +45,23 @@ void createList(){
     }
 
 
-
-
-
 }
 
-void outputList(){
-cout << "Enter loop" << endl;
+void outputList() {
 
-    for(int i = 1; i <= niceList.getLength(); i++){
-        cout << "Inside the loop at: " << i;
+    for (int i = 1; i <= niceList.getLength(); i++) {
+        cout << "Gifts for: " << niceList.getEntry(i).getName() << endl;
 
+        int giftLength = niceList.getEntry(i).getGiftsPtr()->getLength();
+        for (int j = 1; j <= giftLength; j++) {
 
-        LinkedList<string> temp = niceList.getEntry(i).getGifts();
-
-        cout << "Got temp list with lenght: " << temp.getLength() << endl;
-
-        cout << "Entering second list" << endl;
-        for(int i = 1; i <= temp.getLength(); i++){
-
-            cout << temp.getEntry(i);
+            cout << "Found gifts: " << niceList.getEntry(i).getGiftsPtr()->getEntry(j) << endl;
 
         }
     }
 
 
-
-
 }
-
-
 
 
 int main() {

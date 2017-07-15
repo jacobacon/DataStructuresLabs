@@ -7,20 +7,21 @@
 
 #include <string>
 #include "LinkedList.h"
+#include "ListInterface.h"
 
 class niceKid {
 private:
     std::string name;
-    LinkedList<std::string> giftList;
+    std::shared_ptr<ListInterface<std::string>> gifts;
 public:
     niceKid();
+
     niceKid(std::string setName);
-    void setName(std::string name);
+
     std::string getName();
-    void addGiftItem(int i, std::string gift);
-    void addFakeItem();
-    std::string getGiftItem(int i);
-    LinkedList<std::string> getGifts();
+
+    std::shared_ptr<ListInterface<std::string>> getGiftsPtr();
+
     void clearGifts();
 };
 
