@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//ï¿½ Created by Frank M. Carrano and Timothy M. Henry.
+//ï¿½ Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** ADT list: Link-based implementation.
     Listing 9-2.
@@ -51,5 +51,5 @@ public:
                                throw(PrecondViolatedExcep);
 }; // end LinkedList
 
-#include "LinkedList.cpp"
+
 #endif 

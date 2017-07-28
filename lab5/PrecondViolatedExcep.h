@@ -16,5 +16,5 @@ public:
    PrecondViolatedExcep(const std::string& message = "");
 }; // end PrecondViolatedExcep 
 
-#include "PrecondViolatedExcep.cpp"
+
 #endif
