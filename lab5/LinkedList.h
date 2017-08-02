@@ -51,5 +51,4 @@ public:
                                throw(PrecondViolatedExcep);
 }; // end LinkedList
 
-
 #endif 

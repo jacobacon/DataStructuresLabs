@@ -9,6 +9,8 @@
 #include "SortedListInterface.h"
 #include "ListInterface.h"
 #include "PrecondViolatedExcep.h"
+#include "LinkedList.h"
+//#include "SortedLinkList.cpp"
 
 template <class ItemType>
 class SortedLinkList : public SortedListInterface<ItemType>{
@@ -16,20 +18,20 @@ class SortedLinkList : public SortedListInterface<ItemType>{
 private:
     std::unique_ptr<ListInterface<ItemType>> listPtr;
 public:
-    SortedLinkList();
-    SortedLinkList(const SortedLinkList<ItemType> &aList);
-    virtual ~SortedLinkList();
+    SortedLinkList() { listPtr = std::make_unique<LinkedList<ItemType>>(); };
 
-    bool insertSorted(const ItemType &anEntry);
-    bool removeSorted(const ItemType &anEntry);
-    int getPosition(const ItemType &anEntry) const;
+    SortedLinkList(const SortedLinkList<ItemType> &aList) {};
+    virtual ~SortedLinkList() { clear(); };
 
-    bool isEmpty() const;
-    int getLength() const;
-    bool remove(int position);
-    void clear();
-    ItemType getEntry(int position) const;
+    bool insertSorted(const ItemType &anEntry) { return false;};
+    bool removeSorted(const ItemType &anEntry) { return false;};
+    int getPosition(const ItemType &anEntry) const { return 1; };
+
+    bool isEmpty() const { return listPtr->getLength()==0; };
+    int getLength() const { return listPtr->getLength(); };
+    bool remove(int position) { return false; };
+    void clear() {};
+    ItemType getEntry(int position) const { return listPtr->getEntry(position); };
+
 };
-
-
 #endif //LAB5_SORTEDLINKLIST_H

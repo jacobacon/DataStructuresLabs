@@ -2,20 +2,16 @@
 // Created by Jacob Beneski on 7/21/17.
 //
 
-#include "SortedLinkList.h"
-#include "LinkedList.h"
 
-/*
+#include "LinkedList.h"
+#include "SortedLinkList.h"
+
+
 template <class ItemType>
 SortedLinkList<ItemType>::SortedLinkList(){
     listPtr = std::make_unique<LinkedList<ItemType>>();
 }
-*/
 
-template <class ItemType>
-SortedLinkList<ItemType>::SortedLinkList() {
-
-}
 
 template <class ItemType>
 SortedLinkList<ItemType>::SortedLinkList(const SortedLinkList &aList) : listPtr(std::make_unique<LinkedList<ItemType>>()) {

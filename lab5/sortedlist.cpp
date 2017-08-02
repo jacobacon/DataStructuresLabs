@@ -2,9 +2,9 @@
 #include "SortedLinkList.h"
 using namespace std;
 
-std::unique_ptr<SortedListInterface<int>> sortedListPtr = make_unique<SortedLinkList<int>>();
+//std::unique_ptr<SortedListInterface<int>> sortedListPtr = make_unique<SortedLinkList<int>>();
 
-//SortedLinkList<int> sortedLinkList;
+SortedLinkList<int> sortedLinkList;
 
 
 
@@ -13,17 +13,22 @@ void insertRandom(){
     for(int i = 0; i < 20; i++){
         //cout << rand() % 100 + 1 << endl;
 
-        sortedListPtr->insertSorted(rand() % 100 + 1);
+        //sortedListPtr->insertSorted(rand() % 100 + 1);
+        sortedLinkList.insertSorted(rand() % 100 + 1);
 
     }
 }
 
 void output(){
-
+/*
     for(int i = 1; i <= sortedListPtr->getLength(); i++){
-        cout << sortedListPtr->getEntry(i) << endl;
+        //cout << sortedListPtr->getEntry(i) << endl;
     }
+*/
 
+    for(int i = 1; i <= sortedLinkList.getLength(); i++){
+        cout << sortedLinkList.getEntry(i) << endl;
+    }
 };
 
 int main() {
